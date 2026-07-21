@@ -8,7 +8,6 @@ import {
   ChevronDown,
   ChevronLeft,
   ChevronRight,
-  CircleUserRound,
   Grid2x2,
   LayoutGrid,
   Menu,
