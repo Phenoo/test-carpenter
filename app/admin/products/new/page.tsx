@@ -1,0 +1,1 @@
+export default function NewProductPage() { return <section className="py-8"><h1 className="instrument-serif text-5xl">New product</h1><p className="mt-5 max-w-xl text-[14px] leading-7 text-black/60">Product writes are reserved for the trusted Firestore admin service. Configure Firebase Admin credentials before creating inventory.</p></section>; }

@@ -1,0 +1,3 @@
+import Link from "next/link";
+import { shopProducts } from "@/lib/shop-collection-data";
+export default function AdminProductsPage() { return <section className="py-8"><div className="flex items-center justify-between gap-5"><h1 className="instrument-serif text-5xl">Products</h1><Link href="/admin/products/new" className="bg-black px-5 py-3 text-[13px] text-white">New product</Link></div><div className="mt-8 grid gap-3">{shopProducts.map((product) => <Link key={product.slug} href={`/admin/products/${product.slug}`} className="flex justify-between gap-4 border border-black/15 bg-white p-4"><span>{product.title}</span><span>{product.available ? "Active" : "Unavailable"}</span></Link>)}</div></section>; }

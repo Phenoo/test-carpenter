@@ -1,5 +1,12 @@
 import type { Metadata, Viewport } from "next";
-import { Cormorant_Garamond, Manrope } from "next/font/google";
+import {
+  Cormorant_Garamond,
+  Instrument_Sans,
+  Instrument_Serif,
+  Manrope,
+} from "next/font/google";
+import { SiteChrome } from "@/components/site/site-chrome";
+import { StorefrontProvider } from "@/components/site/storefront-provider";
 import "./globals.css";
 
 const manrope = Manrope({
@@ -13,41 +20,52 @@ const cormorant = Cormorant_Garamond({
   weight: ["400", "500", "600", "700"],
 });
 
+const instrumentSans = Instrument_Sans({
+  variable: "--font-instrument-sans",
+  subsets: ["latin"],
+});
+
+const instrumentSerif = Instrument_Serif({
+  variable: "--font-instrument-serif",
+  subsets: ["latin"],
+  weight: ["400"],
+});
+
 export const metadata: Metadata = {
-  metadataBase: new URL("https://companyname.example"),
+  metadataBase: new URL("https://demutzhair.example"),
   title: {
-    default: "COMPANY NAME | Premium Furniture and Interior Design",
-    template: "%s | COMPANY NAME",
+    default: "demutzhair | Luxury Pixie Wigs, Appointments and Education",
+    template: "%s | demutzhair",
   },
   description:
-    "Luxury furniture, bespoke interiors, and white-glove installation for homes, workplaces, hospitality, and commercial spaces.",
+    "Luxury bespoke pixie wigs, short-hair appointments, and specialist pixie-wig education led by Selina Williams.",
   alternates: {
     canonical: "/",
   },
   openGraph: {
-    title: "COMPANY NAME | Premium Furniture and Interior Design",
+    title: "demutzhair | Luxury Pixie Wigs, Appointments and Education",
     description:
-      "Explore bespoke furniture, architectural interiors, and complete project delivery from concept to installation.",
-    url: "https://companyname.example",
-    siteName: "COMPANY NAME",
-    locale: "en_US",
+      "Shop bespoke pixie units, book premium short-hair services, and learn Selina Williams’ pixie method.",
+    url: "https://demutzhair.example",
+    siteName: "demutzhair",
+    locale: "en_GB",
     type: "website",
     images: [
       {
-        url: "https://images.unsplash.com/photo-1505693416388-ac5ce068fe85?auto=format&fit=crop&w=1600&q=80",
+        url: "https://images.unsplash.com/photo-1524504388940-b1c1722653e1?auto=format&fit=crop&w=1600&q=80",
         width: 1600,
         height: 900,
-        alt: "Elegant interior featuring bespoke furniture and warm lighting.",
+        alt: "Editorial portrait of a woman wearing a polished pixie wig by demutzhair.",
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "COMPANY NAME | Premium Furniture and Interior Design",
+    title: "demutzhair | Luxury Pixie Wigs, Appointments and Education",
     description:
-      "Luxury furniture, curated interiors, and thoughtful project delivery for residential and commercial spaces.",
+      "Luxury pixie wigs, refined short-hair services, and specialist training by Selina Williams.",
     images: [
-      "https://images.unsplash.com/photo-1505693416388-ac5ce068fe85?auto=format&fit=crop&w=1600&q=80",
+      "https://images.unsplash.com/photo-1524504388940-b1c1722653e1?auto=format&fit=crop&w=1600&q=80",
     ],
   },
 };
@@ -55,7 +73,7 @@ export const metadata: Metadata = {
 export const viewport: Viewport = {
   width: "device-width",
   initialScale: 1,
-  themeColor: "#f6f1e9",
+  themeColor: "#000000",
 };
 
 export default function RootLayout({
@@ -66,16 +84,19 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={`${manrope.variable} ${cormorant.variable} h-full antialiased`}
+      data-scroll-behavior="smooth"
+      className={`${manrope.variable} ${cormorant.variable} ${instrumentSans.variable} ${instrumentSerif.variable} h-full antialiased`}
     >
       <body className="min-h-full flex flex-col">
         <a
           href="#main-content"
-          className="sr-only focus:not-sr-only focus:fixed focus:left-4 focus:top-4 focus:z-[100] focus:rounded-sm focus:bg-[var(--color-charcoal)] focus:px-4 focus:py-3 focus:text-white"
+          className="sr-only focus:not-sr-only focus:fixed focus:left-4 focus:top-4 focus:z-[100] focus:rounded-sm focus:bg-[var(--color-espresso)] focus:px-4 focus:py-3 focus:text-white"
         >
           Skip to content
         </a>
-        {children}
+        <StorefrontProvider>
+          <SiteChrome>{children}</SiteChrome>
+        </StorefrontProvider>
       </body>
     </html>
   );

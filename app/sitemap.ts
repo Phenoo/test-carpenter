@@ -1,12 +1,11 @@
 import type { MetadataRoute } from "next";
+import { getAllRouteUrls, siteConfig } from "@/lib/site-data";
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  return [
-    {
-      url: "https://companyname.example",
-      lastModified: new Date("2026-07-17"),
-      changeFrequency: "weekly",
-      priority: 1,
-    },
-  ];
+  return getAllRouteUrls().map((path) => ({
+    url: `${siteConfig.domain}${path}`,
+    lastModified: new Date("2026-07-18"),
+    changeFrequency: "weekly",
+    priority: path === "/" ? 1 : 0.8,
+  }));
 }

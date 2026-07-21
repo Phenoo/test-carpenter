@@ -1,19 +1,19 @@
 @import "tailwindcss";
 
 :root {
-  --color-background: #f6f1e9;
-  --color-surface: #fffdfa;
-  --color-ivory: #f6f1e9;
-  --color-beige: #d8c7b4;
-  --color-walnut: #5a3a2e;
-  --color-charcoal: #202020;
-  --color-gold: #b99a63;
-  --color-muted: #6d625a;
+  --color-background: #ffffff;
+  --color-surface: #ffffff;
+  --color-espresso: #000000;
+  --color-blush: #000000;
+  --color-burgundy: #000000;
+  --color-taupe: #737373;
+  --color-muted: #666666;
+  --color-border: rgba(0, 0, 0, 0.14);
 }
 
 @theme inline {
   --color-background: var(--color-background);
-  --color-foreground: var(--color-charcoal);
+  --color-foreground: var(--color-espresso);
   --font-sans: var(--font-manrope);
   --font-serif: var(--font-cormorant);
 }
@@ -23,10 +23,8 @@ html {
 }
 
 body {
-  background:
-    radial-gradient(circle at top right, rgba(185, 154, 99, 0.16), transparent 28%),
-    linear-gradient(180deg, #fbf8f3 0%, #f6f1e9 48%, #f0e6d9 100%);
-  color: var(--color-charcoal);
+  background: linear-gradient(180deg, #ffffff 0%, #f7f7f7 100%);
+  color: var(--color-espresso);
   font-family: var(--font-manrope), sans-serif;
   text-rendering: optimizeLegibility;
 }
@@ -44,12 +42,12 @@ textarea {
 }
 
 ::selection {
-  background: rgba(185, 154, 99, 0.26);
-  color: var(--color-charcoal);
+  background: #000000;
+  color: #ffffff;
 }
 
 :focus-visible {
-  outline: 3px solid rgba(185, 154, 99, 0.75);
+  outline: 3px solid rgba(0, 0, 0, 0.72);
   outline-offset: 3px;
 }
 
@@ -95,9 +93,9 @@ textarea {
 
 .section-title {
   font-family: var(--font-cormorant), serif;
-  font-size: clamp(2.75rem, 5vw, 4.6rem);
-  line-height: 0.95;
-  letter-spacing: -0.03em;
+  font-size: clamp(2.8rem, 5vw, 4.9rem);
+  line-height: 0.93;
+  letter-spacing: -0.035em;
 }
 
 .eyebrow {
@@ -106,21 +104,15 @@ textarea {
   font-weight: 700;
   letter-spacing: 0.26em;
   text-transform: uppercase;
-  color: var(--color-gold);
+  color: var(--color-burgundy);
 }
 
 .panel {
-  border: 1px solid rgb(32 32 32 / 0.08);
+  border: 1px solid var(--color-border);
   background:
-    linear-gradient(180deg, rgb(255 255 255 / 0.86), rgb(255 255 255 / 0.96)),
+    linear-gradient(180deg, rgba(255, 255, 255, 0.88), rgba(255, 255, 255, 0.96)),
     var(--color-surface);
-  box-shadow: 0 24px 80px rgb(32 32 32 / 0.06);
-}
-
-.stat-card {
-  border: 1px solid rgb(32 32 32 / 0.08);
-  background: rgb(255 255 255 / 0.72);
-  padding: 2rem;
+  box-shadow: 0 24px 80px rgba(0, 0, 0, 0.06);
 }
 
 .button-primary,
@@ -130,7 +122,10 @@ textarea {
 .chip,
 .form-input,
 .form-select,
-.color-swatch {
+.color-swatch,
+.footer-link,
+.mobile-tab,
+.nav-link {
   transition:
     background-color 220ms ease,
     border-color 220ms ease,
@@ -145,8 +140,8 @@ textarea {
   justify-content: center;
   min-height: 3.25rem;
   padding: 0.9rem 1.4rem;
-  border: 1px solid var(--color-charcoal);
-  background: var(--color-charcoal);
+  border: 1px solid var(--color-burgundy);
+  background: var(--color-burgundy);
   color: white;
   font-size: 0.9rem;
   font-weight: 600;
@@ -155,8 +150,8 @@ textarea {
 }
 
 .button-primary:hover {
-  background: var(--color-walnut);
-  border-color: var(--color-walnut);
+  background: var(--color-espresso);
+  border-color: var(--color-espresso);
 }
 
 .button-secondary {
@@ -165,18 +160,23 @@ textarea {
   justify-content: center;
   min-height: 3.25rem;
   padding: 0.9rem 1.4rem;
-  border: 1px solid rgb(32 32 32 / 0.12);
-  background: rgb(255 255 255 / 0.08);
-  color: var(--color-charcoal);
+  border: 1px solid var(--color-border);
+  background: rgba(255, 255, 255, 0.12);
+  color: var(--color-espresso);
   font-size: 0.9rem;
   font-weight: 600;
   letter-spacing: 0.08em;
   text-transform: uppercase;
 }
 
+.button-secondary.text-white {
+  color: #ffffff;
+}
+
 .button-secondary:hover {
-  border-color: var(--color-gold);
-  color: var(--color-walnut);
+  border-color: #000000;
+  background: #000000;
+  color: #ffffff;
 }
 
 .button-ghost {
@@ -186,7 +186,7 @@ textarea {
   min-height: 3rem;
   padding: 0.75rem 1.2rem;
   border: 1px solid transparent;
-  color: var(--color-walnut);
+  color: var(--color-burgundy);
   font-size: 0.9rem;
   font-weight: 600;
   letter-spacing: 0.08em;
@@ -194,8 +194,8 @@ textarea {
 }
 
 .button-ghost:hover {
-  border-color: rgb(32 32 32 / 0.1);
-  background: rgb(255 255 255 / 0.45);
+  border-color: var(--color-border);
+  background: #f2f2f2;
 }
 
 .icon-button {
@@ -204,14 +204,15 @@ textarea {
   justify-content: center;
   height: 2.8rem;
   width: 2.8rem;
-  border: 1px solid rgb(32 32 32 / 0.1);
-  background: rgb(255 255 255 / 0.78);
-  color: var(--color-charcoal);
+  border: 1px solid var(--color-border);
+  background: rgba(255, 255, 255, 0.82);
+  color: var(--color-espresso);
 }
 
 .icon-button:hover {
-  border-color: var(--color-gold);
-  color: var(--color-walnut);
+  border-color: #000000;
+  background: #000000;
+  color: #ffffff;
 }
 
 .badge {
@@ -219,8 +220,8 @@ textarea {
   align-items: center;
   min-height: 2rem;
   padding-inline: 0.85rem;
-  border: 1px solid rgb(255 255 255 / 0.14);
-  background: rgb(32 32 32 / 0.68);
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  background: rgba(0, 0, 0, 0.78);
   font-size: 0.68rem;
   font-weight: 700;
   letter-spacing: 0.18em;
@@ -234,8 +235,8 @@ textarea {
   justify-content: center;
   min-height: 2.6rem;
   padding-inline: 1rem;
-  border: 1px solid rgb(32 32 32 / 0.1);
-  background: rgb(255 255 255 / 0.78);
+  border: 1px solid var(--color-border);
+  background: rgba(255, 255, 255, 0.78);
   font-size: 0.8rem;
   letter-spacing: 0.12em;
   text-transform: uppercase;
@@ -243,39 +244,35 @@ textarea {
 
 .chip:hover,
 .chip-active {
-  border-color: var(--color-gold);
-  background: rgb(185 154 99 / 0.14);
-  color: var(--color-walnut);
+  border-color: #000000;
+  background: #000000;
+  color: #ffffff;
 }
 
 .form-input,
 .form-select {
   min-height: 3rem;
   width: 100%;
-  border: 1px solid rgb(32 32 32 / 0.1);
-  background: rgb(255 255 255 / 0.8);
+  border: 1px solid var(--color-border);
+  background: rgba(255, 255, 255, 0.82);
   padding: 0.82rem 0.95rem;
-  color: var(--color-charcoal);
+  color: var(--color-espresso);
 }
 
 .form-input::placeholder {
-  color: rgb(109 98 90 / 0.78);
+  color: rgba(0, 0, 0, 0.52);
 }
 
-.form-input-dark,
-.form-input-dark::placeholder {
-  color: white;
+.instrument-sans {
+  font-family: var(--font-instrument-sans), sans-serif;
 }
 
-.form-input-dark {
-  border-color: rgb(255 255 255 / 0.12);
-  background: rgb(255 255 255 / 0.07);
+.instrument-serif {
+  font-family: var(--font-instrument-serif), serif;
 }
 
-.form-input:hover,
-.form-select:hover,
-.form-input-dark:hover {
-  border-color: var(--color-gold);
+.shop-collection-page {
+  font-family: var(--font-instrument-sans), sans-serif;
 }
 
 .form-select {
@@ -290,12 +287,17 @@ textarea {
   background-repeat: no-repeat;
 }
 
+.form-input:hover,
+.form-select:hover {
+  border-color: var(--color-blush);
+}
+
 .color-swatch {
   display: inline-flex;
   align-items: center;
   gap: 0.75rem;
-  border: 1px solid rgb(32 32 32 / 0.1);
-  background: rgb(255 255 255 / 0.8);
+  border: 1px solid var(--color-border);
+  background: rgba(255, 255, 255, 0.8);
   padding: 0.7rem 0.9rem;
   font-size: 0.75rem;
   font-weight: 700;
@@ -305,7 +307,7 @@ textarea {
 
 .color-swatch-active,
 .color-swatch:hover {
-  border-color: var(--color-gold);
+  border-color: var(--color-blush);
 }
 
 .nav-link {
@@ -321,14 +323,38 @@ textarea {
   left: 0;
   height: 1px;
   width: 100%;
-  background: var(--color-gold);
+  background: var(--color-blush);
   transform: scaleX(0);
   transform-origin: left;
   transition: transform 220ms ease;
 }
 
-.nav-link:hover::after {
+.nav-link:hover::after,
+.nav-link-active::after {
   transform: scaleX(1);
+}
+
+.footer-link:hover {
+  color: var(--color-burgundy);
+}
+
+.mobile-tab {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 2.75rem;
+  flex: 1;
+  border: 1px solid var(--color-border);
+  background: rgba(255, 255, 255, 0.86);
+  font-size: 0.74rem;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+}
+
+.mobile-tab:hover {
+  border-color: var(--color-blush);
+  color: var(--color-burgundy);
 }
 
 @media (max-width: 767px) {

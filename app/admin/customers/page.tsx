@@ -1,0 +1,1 @@
+export default function AdminCustomersPage() { return <section className="py-8"><h1 className="instrument-serif text-5xl">Customers</h1><p className="mt-5 text-[14px] text-black/60">Customer profiles are loaded from the protected users collection after Firebase is configured.</p></section>; }
